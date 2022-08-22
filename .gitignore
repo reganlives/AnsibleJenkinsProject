@@ -33,4 +33,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 .terraform.lock.hcl
-newkey1
+new_key1
+*.ssh
