@@ -93,7 +93,7 @@ resource "aws_instance" "webserver" {
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.BasicPublicSubnet.id
   vpc_security_group_ids      = [aws_security_group.sgPublic.id]
-  user_data = "${file("install_apache.sh")}"
+  #user_data = "${file("install_apache.sh")}"
 
   tags = {
     "name" = "Basic Webserver"
