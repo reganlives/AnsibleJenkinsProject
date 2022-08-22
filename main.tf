@@ -118,18 +118,3 @@ resource "null_resource" "CopyScript" {
 
 }
 
-# resource "null_resource" "file_transfer" {
-#     provisioner "file" {
-#         source = "./exampleFolder"
-#         destination = "/home/ubuntu/"
-#         connection {
-#             type        = "ssh"
-#             user        = "ubuntu"
-#             private_key = "${file("New-key")}"
-#             host        = aws_instance.webserver.public_ip
-#         }
-#     }
-#     depends_on = [
-#         aws_instance.webserver
-#     ] 
-# }
