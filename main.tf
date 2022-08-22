@@ -118,10 +118,10 @@ resource "null_resource" "CopyScript" {
     #password = "${var.admin_password}"
   }
 
-  # provisioner "file" {
-  #   source      = "./docker-start.sh"
-  #   destination = "./home/docker-start.sh"
-  # }
+  provisioner "file" {
+    source      = "./docker-start.sh"
+    destination = "./home/docker-start.sh"
+  }
 
 }
 
