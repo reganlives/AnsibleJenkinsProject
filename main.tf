@@ -107,21 +107,21 @@ resource "aws_instance" "webserver" {
   }
 }
 
-# resource "null_resource" "CopyScript" {
+resource "null_resource" "CopyScript" {
 
-#   connection {
-#     type = "ssh"
-#     user = "ubuntu"
-#     host = aws_instance.webserver.id
-#     private_key = var.ssh_key
-#     #user     = "${var.admin_username}"
-#     #password = "${var.admin_password}"
-#   }
+  connection {
+    type = "ssh"
+    user = "ubuntu"
+    host = aws_instance.webserver.id
+    private_key = var.ssh_key
+    #user     = "${var.admin_username}"
+    #password = "${var.admin_password}"
+  }
 
-#   # provisioner "file" {
-#   #   source      = "./install_apache.sh"
-#   #   destination = "./home/install_apache.sh"
-#   # }
+  # provisioner "file" {
+  #   source      = "./docker-start.sh"
+  #   destination = "./home/docker-start.sh"
+  # }
 
-# }
+}
 
