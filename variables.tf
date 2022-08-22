@@ -8,7 +8,7 @@ variable "aws_secret_key" {
 
 variable "name" {
   type    = string
-  default = "Rehan"
+  default = "AnsibleJenkins"
 }
 
 variable "ami_id" {
