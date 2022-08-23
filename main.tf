@@ -107,21 +107,21 @@ resource "aws_instance" "webserver" {
   }
 }
 
-resource "null_resource" "CopyScript" {
+# resource "null_resource" "CopyScript" {
 
-  connection {
-    type = "ssh"
-    user = "ubuntu"
-    host = aws_instance.webserver.id
-    private_key = file("new_key1") #A variable can't be used when trying to pull in the private key. See: https://www.cloudwalker.io/2020/10/10/terraform-provisioners/
-    #user     = "${var.admin_username}"
-    #password = "${var.admin_password}"
-  }
+#   connection {
+#     type = "ssh"
+#     user = "ubuntu"
+#     host = aws_instance.webserver.id
+#     private_key = file("new_key1") #A variable can't be used when trying to pull in the private key. See: https://www.cloudwalker.io/2020/10/10/terraform-provisioners/
+#     #user     = "${var.admin_username}"
+#     #password = "${var.admin_password}"
+#   }
 
-  provisioner "file" {
-    source      = "./docker-start.sh"
-    destination = "./home/docker-start.sh"
-  }
+#   provisioner "file" {
+#     source      = "./docker-start.sh"
+#     destination = "./home/docker-start.sh"
+#   }
 
-}
+# }
 
