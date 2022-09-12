@@ -16,10 +16,5 @@ pipeline {
                 sh 'sudo apt install apache2 -y'
             }
         }
-        stage('install python') {
-            steps {
-                sh 'sudo apt install python3 -y'
-            }
-        }
     }
 }
