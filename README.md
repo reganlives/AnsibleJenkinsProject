@@ -95,3 +95,15 @@ pip install flask_testing
 ---------------------------
 You are now ready to manually trigger your first build
 Any changes to your repository on given branch(es) should trigger a build
+
+#######################################################################
+
+create a deploy server using t2.micro
+
+put a private ssh key onto the jenkins server
+
+first, try to ssh onto the deploy server from jenkins with that key (remember chmod 600)
+
+try to ssh onto the machine using the Jenkinsfile/pipeline
+
+install apache but do not customise - enable port 80 and test

@@ -59,6 +59,13 @@ resource "aws_security_group" "sgPublic" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    description = "Docker Inbound"
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     description = "HTTP Inbound"
     from_port   = 8080
     to_port     = 8080
@@ -107,6 +114,19 @@ resource "aws_instance" "webserver" {
   }
 }
 
+resource "aws_instance" "deployserver" {
+  ami                         = var.ami_id
+  instance_type               = "t2.micro"
+  key_name                    = var.ssh_key
+  associate_public_ip_address = true
+  subnet_id                   = aws_subnet.BasicPublicSubnet.id
+  vpc_security_group_ids      = [aws_security_group.sgPublic.id]
+  #user_data = "${file("install_apache.sh")}"
+
+  tags = {
+    "name" = "Deploy Server"
+  }
+}
 # resource "null_resource" "CopyScript" {
 
 #   connection {
