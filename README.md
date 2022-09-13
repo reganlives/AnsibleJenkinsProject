@@ -107,3 +107,6 @@ first, try to ssh onto the deploy server from jenkins with that key (remember ch
 try to ssh onto the machine using the Jenkinsfile/pipeline
 
 install apache but do not customise - enable port 80 and test
+
+## When setting up the deploy server, docker needs to be installed on it. In order to do this use the commands in the docker-start.sh file
+## Docker-compose needs to be installed as well as part of this using sudo apt install docker-compose
