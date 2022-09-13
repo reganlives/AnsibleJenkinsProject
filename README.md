@@ -69,3 +69,29 @@ then try adding the tests and pushing your code
 
 pip install pytest
 pip install flask_testing
+
+#####################################################################################################
+
+1. spin up a t2.medium/t2.small 
+2. ssh onto instance and install Ansible and Docker/Docker-Compose 
+3. ansible-playbook to config and install Jenkins
+4. setup using init admin passwd 
+5. config pipeline
+   a. provide URL for reference
+   b. indicate 'hook trigger for SCM' and 'poll SCM' (leave blank)
+   c. indicate Jenkinsfile from repo as pipeline script
+   d. provide URL and branch(es) to build to - ensure you indicate git as SCM!!!
+   e. create and provide credential
+   f. save
+--------------------------
+6. ensure our local repo includes a Jenkinsfile
+7. ensure Jenkinsfile has at least 'build', 'unit test' and 'integration test' stages
+8. push to remote repo
+---------------------------
+9. on remote repo on SCM like github, create webhook to jenkins server on port 8080 
+10. 'http://<my_jenkins_ip>:8080/github-webhook/'
+11. keep default config
+12. save, check delivery to jenkins server (look for response code 200)
+---------------------------
+You are now ready to manually trigger your first build
+Any changes to your repository on given branch(es) should trigger a build
